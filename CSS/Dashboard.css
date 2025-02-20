@@ -1,4 +1,4 @@
-/* Dashboard Styling */
+/* General Styles for Both Dashboards */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,54 +7,87 @@ body {
 }
 
 .dashboard-container {
-    width: 100%;
+    width: 80%;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-header button {
-    background-color: #dc3545;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-header button:hover {
-    background-color: #c82333;
-}
-
-.dashboard-content {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
 }
 
-.user-info, .user-management, .user-profile {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+h1 {
+    font-size: 24px;
+    color: #333;
 }
 
 button {
-    background-color: #28a745;
-    color: white;
     padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
+    background-color: #0056b3;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.user-info, .user-management, .user-profile {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+    width: 48%;
+}
+
+.user-info h2, .user-management h2, .user-profile h2 {
+    color: #007bff;
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* Admin-Specific Styles */
+#user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#user-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.user-management button {
+    background-color: #28a745;
+}
+
+.user-management button:hover {
     background-color: #218838;
+}
+
+/* User-Specific Styles */
+.user-profile button {
+    background-color: #ffc107;
+}
+
+.user-profile button:hover {
+    background-color: #e0a800;
 }
