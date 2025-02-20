@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/CSS/Dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Willkommen, Admin <span id="user-name"></span></h1>
+            <button onclick="logout()">Abmelden</button>
+        </header>
+        <div class="dashboard-content">
+            <div class="user-info">
+                <h2>Kontoinformationen</h2>
+                <p id="balance">Kontostand: €0.00</p>
+            </div>
+            <div class="user-management">
+                <h2>Benutzer verwalten</h2>
+                <button onclick="createUser()">Neuen Benutzer erstellen</button>
+                <ul id="user-list">
+                    <!-- Liste der Benutzer wird hier angezeigt -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JavaScript/admin-dashboard.js"></script>
+</body>
+</html>
