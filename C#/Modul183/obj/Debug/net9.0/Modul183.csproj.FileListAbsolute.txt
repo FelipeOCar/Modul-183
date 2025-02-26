@@ -1,0 +1,8 @@
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.csproj.AssemblyReference.cache
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.AssemblyInfoInputs.cache
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.AssemblyInfo.cs
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.csproj.CoreCompileInputs.cache
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.sourcelink.json
