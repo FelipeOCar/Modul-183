@@ -35,3 +35,6 @@ C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial
 C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.pdb
 C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\Modul183.genruntimeconfig.cache
 C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\obj\Debug\net9.0\ref\Modul183.dll
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\fewe$\OneDrive - ipso! Bildung\Dokumente\2. Jahr\02-Unterrichtsmaterial\02-Module\183-Modul\Modul-183\C#\Modul183\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll

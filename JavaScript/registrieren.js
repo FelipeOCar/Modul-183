@@ -9,10 +9,10 @@ async function registerUser() {
     }
 
     try {
-        const response = await fetch("/api/register", {
+        const response = await fetch("http://localhost:5123/api/register", {  // 🔥 WICHTIG: Volle URL nutzen!
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ Username: username, PasswordHash: password })
         });
 
         const data = await response.json();

@@ -76,8 +76,24 @@ namespace BaselCoinProject.Services
 
         private void SaveUserToFile(User user)
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(_filePath) ?? "users");
-            File.AppendAllText(_filePath, $"{user.Username},{user.PasswordHash},{user.Role}{Environment.NewLine}");
+            try
+            {
+                string directoryPath = "users";
+                string filePath = Path.Combine(directoryPath, "users.txt");
+
+                // Stelle sicher, dass der Ordner existiert
+                if (!Directory.Exists(directoryPath))
+                    Directory.CreateDirectory(directoryPath);
+
+                // Schreibe Benutzer in Datei
+                File.AppendAllText(filePath, $"{user.Username},{user.PasswordHash},{user.Role}{Environment.NewLine}");
+                Console.WriteLine($"Benutzer erfolgreich gespeichert: {user.Username}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Speichern des Benutzers: {ex.Message}");
+            }
         }
+
     }
 }
