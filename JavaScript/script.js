@@ -81,35 +81,56 @@ function handleAuth() {
     }
 }
 
-// 🌍 Sprachen-Handling
-let currentLang = "de";
+// 🌍 Sprachen-Handling mit localStorage
+let currentLang = localStorage.getItem("lang") || "de";
+
 const translations = {
-    de: { title: "Login & Registrierung", login: "Login", register: "Registrieren", username: "Benutzername", email: "E-Mail", phone: "Telefonnummer", password: "Passwort", confirmPassword: "Passwort bestätigen", toggleText: "Noch kein Konto?", loginSuccess: "Login erfolgreich!", registerSuccess: "Registrierung erfolgreich! Jetzt einloggen.", userExists: "Benutzer existiert bereits!", fillAllFields: "Bitte alle Felder ausfüllen!", passwordMismatch: "Passwörter stimmen nicht überein!", wrongLogin: "Falscher Benutzername oder Passwort!", captchaError: "Bitte bestätigen Sie, dass Sie kein Roboter sind!", loginAlert: "Glückwunsch! Du bist eingeloggt." },
-    fr: { title: "Connexion & Inscription", login: "Connexion", register: "S'inscrire", username: "Nom d'utilisateur", email: "E-mail", phone: "Numéro de téléphone", password: "Mot de passe", confirmPassword: "Confirmer le mot de passe", toggleText: "Pas encore de compte?", loginSuccess: "Connexion réussie!", registerSuccess: "Inscription réussie! Connectez-vous.", userExists: "L'utilisateur existe déjà!", fillAllFields: "Veuillez remplir tous les champs!", passwordMismatch: "Les mots de passe ne correspondent pas!", wrongLogin: "Nom d'utilisateur ou mot de passe incorrect!", captchaError: "Veuillez confirmer que vous n'êtes pas un robot!", loginAlert: "Félicitations! Vous êtes connecté." },
-    it: { title: "Accesso & Registrazione", login: "Accesso", register: "Registrati", username: "Nome utente", email: "E-mail", phone: "Numero di telefono", password: "Password", confirmPassword: "Conferma Password", toggleText: "Non hai ancora un account?", loginSuccess: "Accesso riuscito!", registerSuccess: "Registrazione riuscita! Ora accedi.", userExists: "L'utente esiste già!", fillAllFields: "Compila tutti i campi!", passwordMismatch: "Le password non corrispondono!", wrongLogin: "Nome utente o password errati!", captchaError: "Conferma di non essere un robot!", loginAlert: "Congratulazioni! Sei connesso." },
-    en: { title: "Login & Registration", login: "Login", register: "Register", username: "Username", email: "Email", phone: "Phone Number", password: "Password", confirmPassword: "Confirm Password", toggleText: "Don't have an account?", loginSuccess: "Login successful!", registerSuccess: "Registration successful! Now log in.", userExists: "User already exists!", fillAllFields: "Please fill all fields!", passwordMismatch: "Passwords do not match!", wrongLogin: "Incorrect username or password!", captchaError: "Please confirm you are not a robot!", loginAlert: "Congratulations! You are logged in." }
+    de: { title: "Login & Registrierung", login: "Login", register: "Registrieren", username: "Benutzername", firstName: "Vorname", lastName: "Nachname", email: "E-Mail", phone: "Telefonnummer", password: "Passwort", confirmPassword: "Passwort bestätigen", toggleText: "Noch kein Konto?", alreadyHaveAccount: "Schon ein Konto?", loginSuccess: "Login erfolgreich!", registerSuccess: "Registrierung erfolgreich! Jetzt einloggen.", userExists: "Benutzer existiert bereits!", fillAllFields: "Bitte alle Felder ausfüllen!", passwordMismatch: "Passwörter stimmen nicht überein!", wrongLogin: "Falscher Benutzername oder Passwort!", captchaError: "Bitte bestätigen Sie, dass Sie kein Roboter sind!", loginAlert: "Glückwunsch! Du bist eingeloggt." },
+    fr: { title: "Connexion & Inscription", login: "Connexion", register: "S'inscrire", username: "Nom d'utilisateur", firstName: "Prénom", lastName: "Nom", email: "E-mail", phone: "Numéro de téléphone", password: "Mot de passe", confirmPassword: "Confirmer le mot de passe", toggleText: "Pas encore de compte?", alreadyHaveAccount: "Déjà un compte?", loginSuccess: "Connexion réussie!", registerSuccess: "Inscription réussie! Connectez-vous.", userExists: "L'utilisateur existe déjà!", fillAllFields: "Veuillez remplir tous les champs!", passwordMismatch: "Les mots de passe ne correspondent pas!", wrongLogin: "Nom d'utilisateur ou mot de passe incorrect!", captchaError: "Veuillez confirmer que vous n'êtes pas un robot!", loginAlert: "Félicitations! Vous êtes connecté." },
+    it: { title: "Accesso & Registrazione", login: "Accesso", register: "Registrati", username: "Nome utente", firstName: "Nome", lastName: "Cognome", email: "E-mail", phone: "Numero di telefono", password: "Password", confirmPassword: "Conferma Password", toggleText: "Non hai ancora un account?", alreadyHaveAccount: "Hai già un account?", loginSuccess: "Accesso riuscito!", registerSuccess: "Registrazione riuscita! Ora accedi.", userExists: "L'utente esiste già!", fillAllFields: "Compila tutti i campi!", passwordMismatch: "Le password non corrispondono!", wrongLogin: "Nome utente o password errati!", captchaError: "Conferma di non essere un robot!", loginAlert: "Congratulazioni! Sei connesso." },
+    en: { title: "Login & Registration", login: "Login", register: "Register", username: "Username", firstName: "First Name", lastName: "Last Name", email: "Email", phone: "Phone Number", password: "Password", confirmPassword: "Confirm Password", toggleText: "Don't have an account?", alreadyHaveAccount: "Already have an account?", loginSuccess: "Login successful!", registerSuccess: "Registration successful! Now log in.", userExists: "User already exists!", fillAllFields: "Please fill all fields!", passwordMismatch: "Passwords do not match!", wrongLogin: "Incorrect username or password!", captchaError: "Please confirm you are not a robot!", loginAlert: "Congratulations! You are logged in." }
 };
 
+// 🌍 Sprache wechseln & speichern
 function changeLanguage(lang) {
     currentLang = lang;
-    document.getElementById("form-title").innerText = isLogin ? translations[lang].login : translations[lang].register;
+    localStorage.setItem("lang", lang);
+    document.getElementById("form-title").innerText = isLogin ? translations[currentLang].login : translations[currentLang].register;
     updatePlaceholders();
 }
 
+// 🔄 Placeholder-Texte aktualisieren
 function updatePlaceholders() {
-    document.getElementById("username").placeholder = translations[currentLang].username;
-    document.getElementById("email").placeholder = translations[currentLang].email;
-    document.getElementById("phone").placeholder = translations[currentLang].phone;
-    document.getElementById("password").placeholder = translations[currentLang].password;
-    
-    document.getElementById("first-name").placeholder = translations[currentLang].username;
-    document.getElementById("last-name").placeholder = translations[currentLang].username;
-    document.getElementById("reg-email").placeholder = translations[currentLang].email;
-    document.getElementById("reg-phone").placeholder = translations[currentLang].phone;
-    document.getElementById("reg-password").placeholder = translations[currentLang].password;
-    document.getElementById("confirm-password").placeholder = translations[currentLang].confirmPassword;
+    const fields = {
+        "username": "username",
+        "first-name": "firstName",
+        "last-name": "lastName",
+        "email": "email",
+        "phone": "phone",
+        "password": "password",
+        "reg-email": "email",
+        "reg-phone": "phone",
+        "reg-password": "password",
+        "confirm-password": "confirmPassword"
+    };
 
-    document.getElementById("toggle-text").innerHTML = isLogin 
-        ? `${translations[currentLang].toggleText} <a href='#' onclick='toggleForm()'>${translations[currentLang].register}</a>` 
-        : `Schon ein Konto? <a href='#' onclick='toggleForm()'>${translations[currentLang].login}</a>`;
+    Object.keys(fields).forEach(id => {
+        let element = document.getElementById(id);
+        if (element) {
+            element.placeholder = translations[currentLang][fields[id]];
+        }
+    });
+
+    // 🔁 Login/Register Toggle-Text aktualisieren
+    let toggleText = document.getElementById("toggle-text");
+    if (toggleText) {
+        toggleText.innerHTML = isLogin 
+            ? `${translations[currentLang].toggleText} <a href='#' onclick='toggleForm()'>${translations[currentLang].register}</a>` 
+            : `${translations[currentLang].alreadyHaveAccount} <a href='#' onclick='toggleForm()'>${translations[currentLang].login}</a>`;
+    }
 }
+
+// 🌟 Initialisierung der Übersetzungen beim Laden
+document.addEventListener("DOMContentLoaded", () => {
+    changeLanguage(currentLang);
+});
