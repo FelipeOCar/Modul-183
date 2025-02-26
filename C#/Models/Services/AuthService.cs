@@ -9,7 +9,7 @@ namespace BaselCoinProject.Services
 {
     public class AuthService
     {
-        private readonly string _filePath = "users.txt"; // Path to your local file storing user data
+        private readonly string _filePath = "users/users.txt"; // Path to your local file storing user data in the "users" folder
 
         public bool Register(string username, string password, string role = "User")
         {

@@ -1,18 +1,20 @@
 const fs = require('fs'); // Import the fs module
 
+const logFilePath = './users/userLogs.txt'; // Path to the userLogs.txt inside the "users" folder
+
 function logAction(actionType, username, role) {
     const log = {
         timestamp: new Date().toISOString(),
         eventType: actionType,
         user: username,
-        role: role, // Add the role information
+        role: role, // Added role for more detailed logging
         action: `${actionType} action performed by ${role}`
     };
 
     const logMessage = JSON.stringify(log) + '\n'; // Convert log object to string and add a newline
     
     // Save the log message to a file
-    fs.appendFile('userLogs.txt', logMessage, (err) => {
+    fs.appendFile(logFilePath, logMessage, (err) => {
         if (err) {
             console.error('Error writing to log file:', err);
         } else {
@@ -22,6 +24,6 @@ function logAction(actionType, username, role) {
 }
 
 // Example usage:
-logAction('login', 'adminUser', 'Admin'); // Log admin login action
-logAction('register', 'user1', 'User'); // Log user registration action
-logAction('register', 'user2', 'User'); // Log another user registration action
+logAction('login', 'adminUser', 'Admin'); // Example: Log a login action by Admin
+logAction('register', 'user1', 'User'); // Example: Log a register action by User
+logAction('register', 'user2', 'User'); // Example: Log a register action by User
