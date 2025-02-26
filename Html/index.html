@@ -15,8 +15,11 @@
                 <input type="text" id="username" placeholder="Benutzername" required>
                 <input type="password" id="password" placeholder="Passwort" required>
                 <!-- Replaced reCAPTCHA with dynamically generated CAPTCHA -->
-                <div id="captcha-container"></div> <!-- This will hold the CAPTCHA -->
-                <button onclick="handleAuth()">Login</button>
+                <div id="captcha-container">
+                    <p id="captcha-select">Select the correct image:</p>
+                    <button id="captcha-verify">Verify</button>
+                </div> <!-- This will hold the CAPTCHA -->
+                <button id="login-button" onclick="handleAuth()">Login</button>
                 <p id="toggle-text">Noch kein Konto? <a href="#" onclick="toggleForm()">Registrieren</a></p>
             </div>
             
