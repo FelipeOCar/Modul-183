@@ -1,44 +1,51 @@
-[ApiController]
-[Route("api")]
-public class UserController : ControllerBase
+using Microsoft.AspNetCore.Mvc;
+using BaselCoinProject.Services;
+using BaselCoinProject.Models;
+
+namespace BaselCoinProject.Controllers
 {
-    private readonly AuthService _authService;
-
-    public UserController(AuthService authService)
+    [ApiController]
+    [Route("api")] // Basis-URL für API-Endpunkte
+    public class UserController : ControllerBase
     {
-        _authService = authService;
-    }
+        private readonly AuthService _authService;
 
-    [HttpPost("register")]
-    public IActionResult Register([FromBody] UserDto userDto)
-    {
-        if (string.IsNullOrWhiteSpace(userDto.Username) || string.IsNullOrWhiteSpace(userDto.Password))
+        public UserController(AuthService authService)
         {
-            return BadRequest(new { error = "Benutzername und Passwort dürfen nicht leer sein." });
+            _authService = authService;
         }
 
-        bool success = _authService.Register(userDto.Username, userDto.Password, userDto.Role ?? "User");
-        if (success)
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] User user)
         {
-            return Ok(new { message = "Registrierung erfolgreich!" });
-        }
-        else
-        {
-            return BadRequest(new { error = "Benutzername existiert bereits." });
-        }
-    }
+            if (string.IsNullOrWhiteSpace(user.Username) || string.IsNullOrWhiteSpace(user.PasswordHash))
+            {
+                return BadRequest(new { error = "Benutzername und Passwort dürfen nicht leer sein." });
+            }
 
-    [HttpPost("login")]
-    public IActionResult Login([FromBody] UserDto userDto)
-    {
-        var user = _authService.Login(userDto.Username, userDto.Password);
-        if (user != null)
-        {
-            return Ok(new { message = "Login erfolgreich!", user });
+            bool success = _authService.Register(user.Username, user.PasswordHash, user.Role ?? "User");
+            if (success)
+            {
+                return Ok(new { message = "Registrierung erfolgreich!" });
+            }
+            else
+            {
+                return BadRequest(new { error = "Benutzername existiert bereits." });
+            }
         }
-        else
+
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] User user)
         {
-            return Unauthorized(new { error = "Falscher Benutzername oder Passwort." });
+            var loggedInUser = _authService.Login(user.Username, user.PasswordHash);
+            if (loggedInUser != null)
+            {
+                return Ok(new { message = "Login erfolgreich!", user = loggedInUser });
+            }
+            else
+            {
+                return Unauthorized(new { error = "Falscher Benutzername oder Passwort." });
+            }
         }
     }
 }
