@@ -5,7 +5,7 @@ function resetTimeouts() {
     clearTimeout(sessionTimeout);
     clearTimeout(idleTimeout);
 
-    idleTimeout = setTimeout(logoutDueToIdle, 60000); // 10 Minuten Idle Timeout
+    idleTimeout = setTimeout(logoutDueToIdle,  300000); // 10 Minuten Idle Timeout
     sessionTimeout = setTimeout(logoutDueToTimeout, 1800000); // 30 Minuten Absolutes Timeout
 }
 
